@@ -6,6 +6,12 @@ Repositório com códigos e documentação de um projeto que envolve hardware e 
 
 ## Hardware
 
+<figure class="image">
+  <img src="fluxograma-projeto-hardware.png" alt="Alo alo som">
+  <figcaption>Esquema de funcionamento do projeto no hardware</figcaption>
+</figure>
+</br>
+
 - Projeto vai ficar conectado 24/7
 - Hardware vai coletar dados e enviar para a nuvem
 
