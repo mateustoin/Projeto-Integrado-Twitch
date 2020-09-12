@@ -7,7 +7,7 @@ Repositório com códigos e documentação de um projeto que envolve hardware e 
 ## Hardware
 
 <figure class="image">
-  <img src="fluxograma-projeto-hardware.png" alt="Alo alo som">
+  <img src="https://github.com/mateustoin/Projeto-Integrado-Twitch/blob/master/img/fluxograma-projeto-hardware.png?raw=True">
   <figcaption>Esquema de funcionamento do projeto no hardware</figcaption>
 </figure>
 </br>
