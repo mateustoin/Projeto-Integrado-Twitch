@@ -2,22 +2,34 @@ from fastapi import FastAPI
 import uvicorn
 from datetime import datetime
 
+# Imports relacionados a conexão com Firestore (Firebase)
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+# Use a service account
+cred = credentials.Certificate('chave/projeto-integrado-bittoin-firebase-adminsdk-rxd87-fb727914b2.json')
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
 app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Boas vindas à API de coleta de dados da ESP32!"}
 
-@app.get("/bittoin")
-async def bittoin():
-    return {"message": "Bem vindos bem vindos!"}
+@app.get("/distancia/{distancia}")
+async def read_dist(distancia):
 
-@app.get("/temperatura/{temperatura}")
-async def read_temp(temperatura):
-    print(temperatura)
     now = datetime.now()
-    return {"Temperatura": temperatura,
-            "Timestamp": datetime.timestamp(now)}
+    data = {u"Distancia": distancia,
+            u"Timestamp": datetime.timestamp(now)}
+    
+    doc_ref = db.collection(u'distancia').document()
+    doc_ref.set(data)
+    
+    return data
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000, debug=True)

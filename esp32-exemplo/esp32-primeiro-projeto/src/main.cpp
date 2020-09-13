@@ -2,15 +2,25 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-#define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
-#define TIME_TO_SLEEP  15        /* Time ESP32 will go to sleep (in seconds) */
+// Pino que o sensor de distância está conectado
+#define sensor_dist 34
 
+// Variáveis que armazenarão os dados do sensor de distância
+int sensorValue = 0;
+int cmValue = 0;
+
+
+// Informações do sleep da placa
+#define uS_TO_S_FACTOR 1000000  /* Fator de conversão de Micro Segundos para Segundos */
+#define TIME_TO_SLEEP  30        /* Tempo que a ESP32 irá dormir (em segundos) */
+
+// Contador de reinícios da ESP32
 RTC_DATA_ATTR int bootCount = 0;
 
 /*
-Method to print the reason by which ESP32
-has been awaken from sleep
+Função printa o motivo da ESP32 ter sido acordada
 */
+
 void print_wakeup_reason(){
   esp_sleep_wakeup_cause_t wakeup_reason;
 
@@ -27,16 +37,20 @@ void print_wakeup_reason(){
   }
 }
 
-#define LED_PIN 2
 
-String url = "http://192.168.0.108:8000/temperatura/";
+// URL da API QUE ESTAMOS UTILIZANDO
+String url = "http://192.168.0.108:8000/distancia/";
 String sensor = "";
 
+// Dados de conexão do WiFi
 const char *ssid = "Wil_Wifi";
 const char *password = "PlsChangeMe@senhas0";
 
 void setup(){
+	// Inicializa porta serial
 	Serial.begin(115200);
+
+	// Inicializa conexão WiFi e tenta conectar
 	WiFi.begin(ssid, password);
 
 	while (WiFi.status() != WL_CONNECTED){
@@ -46,7 +60,7 @@ void setup(){
 
 	Serial.println("Conectou no WiFi!");
 
-	//Print the wakeup reason for ESP32
+	//Printa razão da ESP32 ter acordado
 	print_wakeup_reason();
 
 	 /*
@@ -57,14 +71,16 @@ void setup(){
 	Serial.println("Setup ESP32 to sleep for every " + String(TIME_TO_SLEEP) +
 	" Seconds");
 
-	pinMode(LED_PIN, OUTPUT);
+	// Altera resolução da leitura analógica para 10 bits (0-1023)
+	analogReadResolution(10);
 }
 
 void loop(){
-	digitalWrite(LED_PIN, HIGH);
-
 	HTTPClient http;
-	sensor = String(random(0,40));
+	
+	sensorValue = analogRead(sensor_dist);
+  	cmValue = (6762/(sensorValue-9))+2;
+	sensor = String(cmValue);
 
 	http.begin(url + sensor);
 	int httpCode = http.GET();
@@ -74,15 +90,12 @@ void loop(){
         Serial.println(httpCode);
         Serial.println(payload);
       }
- 
+
     else {
       Serial.println("Error on HTTP request");
     }
 
 	http.end();
-
-	delay(50);
-	digitalWrite(LED_PIN, LOW);
 
 	Serial.flush(); 
   	esp_deep_sleep_start();
