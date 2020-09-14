@@ -30,6 +30,3 @@ async def read_dist(distancia):
     doc_ref.set(data)
     
     return data
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000, debug=True)
