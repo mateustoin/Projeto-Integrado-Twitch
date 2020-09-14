@@ -40,7 +40,7 @@ void print_wakeup_reason(){
 
 // URL da API QUE ESTAMOS UTILIZANDO
 //String url = "http://192.168.0.108:8000/distancia/";
-String url = "https://projeto-integrado-bittoin.herokuapp.com/distancia";
+String url = "https://projeto-integrado-bittoin.herokuapp.com/distancia/";
 String sensor = "";
 
 // Dados de conexão do WiFi
