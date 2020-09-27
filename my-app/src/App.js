@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <LineChart width={'80%'} height={'50%'} data={data}>
+      <LineChart width={800} height={500} data={data}>
         <Line type="monotone" dataKey="uv" stroke="#000000" />
         <CartesianGrid stroke="#ccc" />
         <XAxis dataKey="name" label="Testando titulo eixo X" />
