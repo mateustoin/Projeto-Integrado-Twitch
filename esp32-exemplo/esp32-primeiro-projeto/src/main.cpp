@@ -2,6 +2,9 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
+#include <Wire.h>
+#include "BH1750.h"
+
 // Pino que o sensor de distância está conectado
 #define sensor_dist 34
 
