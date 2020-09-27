@@ -100,7 +100,15 @@ class Toggle extends React.Component {
 ReactDOM.render(
   <React.StrictMode>
     <Header/>
-    <App/>
+    <div style={
+      {display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      width: '40%',
+    paddingTop: '5%'}
+    }>
+      <App/>
+    </div>
     <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
