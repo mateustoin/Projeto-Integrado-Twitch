@@ -7,6 +7,8 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
+from fastapi.middleware.cors import CORSMiddleware
+
 # Use a service account
 cred = credentials.Certificate('chave/projeto-integrado-bittoin-firebase-adminsdk-rxd87-fb727914b2.json')
 firebase_admin.initialize_app(cred)
@@ -14,6 +16,14 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
