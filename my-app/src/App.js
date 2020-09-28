@@ -25,7 +25,7 @@ function App() {
         console.log(data);
         setData(data);
       })
-  });
+  }, []);
 
   return (
     <div className="App">

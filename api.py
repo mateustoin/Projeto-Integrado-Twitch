@@ -43,7 +43,7 @@ async def read_dist(distancia):
 
 @app.get("/dados/distancia")
 async def return_dist():
-    distancia_ref = db.collection(u'distancia').order_by(u'Timestamp')
+    distancia_ref = await db.collection(u'distancia').order_by(u'Timestamp')
     docs = distancia_ref.stream()
     
     lista = []
