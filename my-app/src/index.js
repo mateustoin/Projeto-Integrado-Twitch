@@ -99,17 +99,38 @@ class Toggle extends React.Component {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header/>
-    <div style={
-      {display: 'block',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      width: '40%',
-    paddingTop: '5%'}
-    }>
-      <App/>
+    <div style={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+      <div styl={{
+        flex: '1 0 auto',
+        padding: '20px'
+      }}>
+        <Header/>
+        <div style={
+          {display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: '40%',
+          paddingTop: '5%'}
+        }>
+          <App/>
+        </div>
+
+      </div>
+
+      <footer style={{
+        flexShrink: '0',
+        padding: '20px',
+        marginTop: '350px',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center'
+      }}>
+        <Footer/>
+      </footer>
     </div>
-    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
