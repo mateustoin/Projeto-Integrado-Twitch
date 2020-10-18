@@ -123,7 +123,7 @@ ReactDOM.render(
       <footer style={{
         flexShrink: '0',
         padding: '20px',
-        marginTop: '350px',
+        marginTop: '300px',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center'

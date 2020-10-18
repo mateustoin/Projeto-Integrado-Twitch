@@ -10,7 +10,7 @@ from firebase_admin import firestore
 from fastapi.middleware.cors import CORSMiddleware
 
 # Use a service account
-cred = credentials.Certificate('chave/projeto-integrado-bittoin-firebase-adminsdk-rxd87-fb727914b2.json')
+cred = credentials.Certificate('key/projeto-integrado-bittoin-firebase-adminsdk-rxd87-fb727914b2.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()

@@ -21,13 +21,13 @@ function Footer() {
     const classes = useStyles();
     const [value, setValue] = React.useState('recents');
     const render_instagram = (
-        <img src={logo_instagram} height='35%' width='35%'/>
+        <img src={logo_instagram} height='45%' width='45%'/>
     );
     const render_twitch = (
-        <img src={logo_twitch} height='35%' width='35%'/>
+        <img src={logo_twitch} height='45%' width='45%'/>
     );
     const render_github = (
-        <img src={logo_github} height='35%' width='35%'/>
+        <img src={logo_github} height='45%' width='45%'/>
     );
 
     return (
