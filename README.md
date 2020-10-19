@@ -1,3 +1,35 @@
+<!-- Estrutura da documentação:
+  - Introdução (Imagem)
+  - Sumário
+  - Instalação e Ferramentas (Imagem)
+  - Hardware (Imagem)
+    - Resultados
+    - PlatformIO
+    - ESP32
+    - Sensor de Distância
+    - Circuito
+    - Código
+  - Software (Imagem)
+    - API + Banco de Dados (Imagem)
+      - Cloud Firestore
+        - Resultados
+        - Motivações
+        - Como é organizado/usado
+      - FastAPI
+        - Resultados
+        - Motivações
+        - Como executar/Instalar
+        - Código
+    - Página Web (React) (Imagem)
+      - Resultados
+      - Motivações
+      - Como executar/Instalar
+      - Código
+-->
+
+
+
+
 # Projeto-Integrado-Twitch
 Repositório com códigos e documentação de um projeto que envolve hardware e software desenvolvido nas lives da Twitch do canal do Bittoin.
 
@@ -8,7 +40,7 @@ Repositório com códigos e documentação de um projeto que envolve hardware e 
 
 <figure class="image">
   <img src="https://github.com/mateustoin/Projeto-Integrado-Twitch/blob/master/img/fluxograma-projeto-hardware.png?raw=True">
-  <figcaption>Esquema de funcionamento do projeto no hardware</figcaption>
+  <figcaption>Figura 1. Esquema de funcionamento do projeto no hardware</figcaption>
 </figure>
 </br>
 
