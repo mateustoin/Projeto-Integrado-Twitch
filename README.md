@@ -74,7 +74,7 @@ Repositório com códigos e documentação de um projeto que envolve hardware e 
 
 ## Conexão
 
-- Hardware: (ESP32)[https://www.espressif.com/en/products/socs/esp32]
-- API REST: (FastAPI)[https://fastapi.tiangolo.com/]
-- Banco de dados Online: (Cloud Firestore)[https://firebase.google.com/docs/firestore]
+- Hardware: [ESP32](https://www.espressif.com/en/products/socs/esp32)
+- API REST: [FastAPI](https://fastapi.tiangolo.com/)
+- Banco de dados Online: [Cloud Firestore](https://firebase.google.com/docs/firestore)
 - Web: Desconhecido (HTML + JS + CSSS ou React -- AntD ou MaterialUI --)
